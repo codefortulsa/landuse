@@ -12,3 +12,8 @@ Data must be aggregated to make individual sales tax payments anonymous
 - [] Combine points into geographic collections with at least 3 members per area
 - [] Assign sales tax value to geographic areas
 - [] Create map or visualization
+
+## Install
+`
+npm install
+`
