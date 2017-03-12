@@ -12,9 +12,13 @@ const OUTPUT_JSON_LOCATION = './SalesTaxLocations.json';
 const workbook = xlsx.readFile(INPUT_SPREADSHEET_LOCATION);
 const ADDRESS_SHEET = 'prp_PermitAdresses'
 
-function *rowIterator(xl_array){
+function *rowIterator(addresses){
     const cities ={
-        "TULSA" : "Sapulpa",
+        "TULSA" : "Tulsa",
+        "BIXBY" : "Bixby",
+        "BROKE" : "Broken Arrow",
+        "SAND"  : "Sand Springs",
+        "SAPUL" : "Sapulpa",
         "JENKS" : "Jenks",
         "OWASS" : "Owasso",
         "GLENP" : "Glenpool",
@@ -26,23 +30,23 @@ function *rowIterator(xl_array){
         "SANDS" : "Sand Springs",
         "VINIT" : "Vinita",
         "CATOO" : "Catoosa",
-        "SOUTH" : "?",
-        "HOUST" : "?",
+        "SOUTH" : "South Lake",
+        "HOUST" : "Houston",
         "PRATT" : "Pratt",
-        "LEONA" : "?",
-        "OOLOG" : "Oolaga",
-        "LIBER" : "?",
-        "CLEVE" : "?",
+        "LEONA" : "Leonard",
+        "OOLOG" : "Oologah",
+        "LIBER" : "Liberty",
+        "CLEVE" : "Cleveland",
         "CLARE" : "Claremore",
-        "HARRA" : "?",
-        "SALIN" : "?",
+        "HARRA" : "Harrah",
+        "SALIN" : "Salina",
         "TUSLA" : "Tulsa",
-        "MCALE" : "?",
-        "EL RE" : "??",
+        "MCALE" : "McAlester",
+        "EL RE" : "El Reno",
         "TULS"  : "Tulsa"
     }
-    while (xl_array.length >= 1 ){
-        let [key, address, street, street_2, CITY, state, zip] = xl_array.shift()
+    while (addresses.length >= 1 ){
+        let [key, address, street, street_2, CITY, state, zip] = addresses.pop()
         yield {key, address, street, street_2, city:cities[CITY], state, zip}
     }
 }
@@ -54,7 +58,7 @@ const [header,...row_array] = xlsx.utils.sheet_to_json(
 rows = rowIterator(row_array)
 
 for (row of rows){
-    console.log(row);
+    console.log(row.address);
     // geolocation code goes here
 
 }
