@@ -5,6 +5,7 @@
 
 const xlsx = require('xlsx');
 const jsonfile = require('jsonfile');
+request = require('request-json');
 
 //Spreadsheet data
 const INPUT_SPREADSHEET_LOCATION = './SalesTaxLocations.xlsx';
@@ -49,6 +50,17 @@ function *rowIterator(addresses){
         let [key, address, street, street_2, CITY, state, zip] = addresses.pop()
         yield {key, address, street, street_2, city:cities[CITY], state, zip}
     }
+}
+
+
+
+var client = request.createClient('http://localhost:8888/');
+
+function requestGeocode (full_address){
+
+
+
+    return
 }
 
 const [header,...row_array] = xlsx.utils.sheet_to_json(

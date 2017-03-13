@@ -1,27 +1,29 @@
 {
-    "name": "landuse",
-    "version": "1.0.0",
-    "description": "A project with Tulsa's Urban Data Pioneers to visualize sales tax geographically",
-    "scripts": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/codefortulsa/landuse.git"
-    },
-    "keywords": [
-        "sales",
-        "tax",
-        "Tulsa"
-    ],
-    "author": "codefortulsa",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/codefortulsa/landuse/issues"
-    },
-    "homepage": "https://github.com/codefortulsa/landuse#readme",
-    "dependencies": {},
-    "devDependencies": {
-        "jsonfile": "^2.4.0",
-        "xlsx": "^0.8.1",
-        "underscore": "^1.8.3"
-    }
+  "name": "landuse",
+  "version": "1.0.0",
+  "description": "A project with Tulsa's Urban Data Pioneers to visualize sales tax geographically",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codefortulsa/landuse.git"
+  },
+  "keywords": [
+    "sales",
+    "tax",
+    "Tulsa"
+  ],
+  "author": "codefortulsa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codefortulsa/landuse/issues"
+  },
+  "homepage": "https://github.com/codefortulsa/landuse#readme",
+  "dependencies": {
+    "request-json": "^0.6.1"
+  },
+  "devDependencies": {
+    "jsonfile": "^2.4.0",
+    "xlsx": "^0.8.1",
+    "underscore": "^1.8.3"
+  }
 }
