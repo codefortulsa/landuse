@@ -20,4 +20,5 @@ npm install
 
 
 ### references
-[US Census Geocoder](https://www.census.gov/geo/maps-data/data/geocoder.html)
+[US Census Geocoder API](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.pdf)
+[Use ogr2ogr to convert .shp files](https://www.bram.us/2012/03/14/convert-esri-shapefile-shp-to-geojson-json/)

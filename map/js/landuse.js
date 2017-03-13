@@ -10,7 +10,12 @@ function ready() {
         zoom: 8
     });
 
-    map.on('load', ()=>{addTulsaCounty(map)})
+    map.on('load', ()=>{
+        addTulsaCounty(map)
+        addTulsaCity(map)
+
+    })
+
 
     // const svg = d3.select(map.getPanes().overlayPane).append("svg")
     // const g = svg.append("g").attr("class", "leaflet-zoom-hide")
