@@ -2,14 +2,12 @@
  * Converts a source spreadsheet with address information into a jsonfile with
  * geolocation information added
  */
-
+var fs = require("fs")
 const xlsx = require('xlsx');
-const jsonfile = require('jsonfile');
-request = require('request-json');
 
 //Spreadsheet data
-const INPUT_SPREADSHEET_LOCATION = './SalesTaxLocations.xlsx';
-const OUTPUT_JSON_LOCATION = './SalesTaxLocations.json';
+const INPUT_SPREADSHEET_LOCATION = './data/SalesTaxLocations.xlsx';
+const OUTPUT_JSON_LOCATION = './data/SalesTaxLocations.json';
 const workbook = xlsx.readFile(INPUT_SPREADSHEET_LOCATION);
 const ADDRESS_SHEET = 'prp_PermitAdresses'
 
@@ -46,21 +44,10 @@ function *rowIterator(addresses){
         "EL RE" : "El Reno",
         "TULS"  : "Tulsa"
     }
-    while (addresses.length >= 1 ){
+    while (addresses.length >= 14200 ){
         let [key, address, street, street_2, CITY, state, zip] = addresses.pop()
         yield {key, address, street, street_2, city:cities[CITY], state, zip}
     }
-}
-
-
-
-var client = request.createClient('http://localhost:8888/');
-
-function requestGeocode (full_address){
-
-
-
-    return
 }
 
 const [header,...row_array] = xlsx.utils.sheet_to_json(
@@ -69,13 +56,20 @@ const [header,...row_array] = xlsx.utils.sheet_to_json(
 
 rows = rowIterator(row_array)
 
-for (row of rows){
-    console.log(row.address);
-    // geolocation code goes here
 
-}
+var JSONfile = fs.createWriteStream(OUTPUT_JSON_LOCATION)
 
-// console.log('Writing output file...');
-// jsonfile.writeFile(OUTPUT_JSON_LOCATION, data, function (err) {
-//     console.error(err);
-// });
+//get started without a comma
+JSONfile.write(`[${JSON.stringify(rows.next().value)}`)
+
+let done = false
+do {
+    let row
+    ({value: row, done} = rows.next())
+    if (done) {
+        JSONfile.write(']');
+        JSONfile.end();
+    } else {
+        JSONfile.write(`,${JSON.stringify(row)}`)
+    }
+} while (!done)
