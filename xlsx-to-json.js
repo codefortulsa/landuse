@@ -44,7 +44,7 @@ function *rowIterator(addresses){
         "EL RE" : "El Reno",
         "TULS"  : "Tulsa"
     }
-    while (addresses.length >= 14200 ){
+    while (addresses.length >= 1 ){
         let [key, address, street, street_2, CITY, state, zip] = addresses.pop()
         yield {key, address, street, street_2, city:cities[CITY], state, zip}
     }
@@ -60,12 +60,13 @@ rows = rowIterator(row_array)
 var JSONfile = fs.createWriteStream(OUTPUT_JSON_LOCATION)
 
 //get started without a comma
-JSONfile.write(`[${JSON.stringify(rows.next().value)}`)
+JSONfile.write(`[${ JSON.stringify(rows.next().value) }`)
 
 let done = false
+let row
+
 do {
-    let row
-    ({value: row, done} = rows.next())
+    ( {value: row, done} = rows.next() )
     if (done) {
         JSONfile.write(']');
         JSONfile.end();
