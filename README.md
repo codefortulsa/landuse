@@ -20,9 +20,13 @@ npm install
 
 ## Utilities
 
-* xlsx-to-json.js -- Reads the xlsx source and outputs a json array of ojects for each row
+* xlsx-to-json.js -- Reads the xlsx source and outputs a json array of objects for each row
 
-* us-census-geocoder.js --- module that provide the 'geocode' function.  Takes an address and callback.  If successful, geocoder provides an array [Longitude, Latitude].
+* add-geocode-json.js -- Reads json array file and creates a new json array file with geocoded addresses
+
+* json-to-csv.js -- Reads json array file and save a csv file
+
+* us-census-geocoder.js --- module that provide the 'geocode' function.  Takes an address and callback.  If successful, geocoder calls the callback with an array = [Longitude, Latitude].
 
 
 ```
@@ -34,9 +38,6 @@ geocoder("36 East Cameron Street Tulsa OK", function(coords){
 })
 ```
 
-* add-geocode-csv.js -- reads json array file and outputs a csv with geocoded addresses
-
-* add-geocode-json.js -- readsy json array file and outpus a new json array file with geocoded addresses
 
 
 

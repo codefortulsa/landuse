@@ -1,5 +1,4 @@
 const fs = require("fs")
-const csvWriter = require('csv-write-stream')
 
 const StreamArray = require("stream-json/utils/StreamArray");
 const EventEmitter = require('events');
@@ -19,15 +18,17 @@ const geocode = require("./us-census-geocoder")
 
 
 INPUT_FILE.output.on("data", function({index,value}){
-    if(value.coordinates){
-        console.log(`done => ${value.address}`);
-        OUTPUT_FILE.write(`,${JSON.stringify(value)}`)
+
+    write_value = (obj)=>OUTPUT_FILE.write(`,${JSON.stringify(obj)}`)
+
+    if(value.coordinates.length>0){
+        console.log(`done: ${value.key} ${value.coordinates}`);
+        write_value(value)
     } else {
-        console.log(`geocoding ${value.key} ${value.address} =>`);
-        geocode(value.address, function (coords) {
+        geocode(value, function (coords) {
             value.coordinates = coords
-            console.log(JSON.stringify(coords));
-            OUTPUT_FILE.write(`,${JSON.stringify(value)}`)
+            console.log(`geocoding ${value.key} => ${value.coordinates}`);
+            write_value(value)
         })
     }
 });
