@@ -8,12 +8,10 @@ const addressEmitter = new AddressEmitter();
 const makeSource = require("stream-json");
 const request = require('request-json');
 const buildUrl = require('build-url');
-const csvWriter = require('csv-write-stream')
+
 const StreamArray = require("stream-json/utils/StreamArray");
 const sleep = require('system-sleep');
 
-const INPUT_JSON_LOCATION = './data/SalesTaxLocations.json';
-const OUTPUT_CSV_LOCATION = './data/SalesTaxLocations+Geocode2.csv';
 
 const url_base ='https://geocoding.geo.census.gov/geocoder/locations/onelineaddress/'
 
@@ -33,10 +31,13 @@ censusParameters = geocodeParamMaker()
 
 const client = request.createClient(url_base);
 
-
+const INPUT_JSON_PATH = './data/';
+const INPUT_JSON_NAME = 'SalesTaxLocations';
+const INPUT_JSON_LOCATION = `${IINPUT_JSON_PATH}${INPUT_JSON_NAME}.json`
+const OUTPUT_JSON_LOCATION = `${IINPUT_JSON_PATH}${INPUT_JSON_NAME}.geocoded.json`
 const INPUT_FILE = StreamArray.make();
-const CSV_FILE = csvWriter()
-CSV_FILE.pipe(fs.createWriteStream(OUTPUT_CSV_LOCATION))
+const OUTPUT_FILE = fs.createWriteStream(OUTPUT_JSON_LOCATION)
+
 
 addressEmitter.on('noCoords', function(vendor) {
     const path = censusParameters(vendor.address)
