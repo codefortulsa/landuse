@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/codefortulsa/landuse#readme",
   "dependencies": {
+    "async": "^2.1.5",
     "build-url": "^1.0.9",
     "csv-write-stream": "^2.0.0",
     "jsonfile": "^2.4.0",

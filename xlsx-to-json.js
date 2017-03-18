@@ -44,7 +44,7 @@ function *rowIterator(addresses){
         "EL RE" : "El Reno",
         "TULS"  : "Tulsa"
     }
-    while (addresses.length >= 1 ){
+    while (addresses.length >= 14200 ){
         let [key, address, street, street_2, CITY, state, zip] = addresses.pop()
         yield {key, address, street, street_2, city:cities[CITY], state, zip}
     }

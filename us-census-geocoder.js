@@ -2,7 +2,7 @@ const request = require('request-json');
 const sleep = require('system-sleep');
 
 const US_CENSUS_URL ='https://geocoding.geo.census.gov/geocoder/locations/address/'
-const REQUEST_WAIT = 750
+const REQUEST_WAIT = 200
 
 const copy = (obj)=>Object.assign({},obj)
 
