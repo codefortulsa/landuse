@@ -1,8 +1,7 @@
 const fs = require("fs")
-
 const StreamArray = require("stream-json/utils/StreamArray");
-const EventEmitter = require('events');
 const async = require("async")
+const geocode = require("./services/us-census-geocoder")
 
 const INPUT_JSON_PATH = './data/';
 const INPUT_JSON_NAME = 'SalesTaxLocations';
@@ -12,14 +11,13 @@ const OUTPUT_JSON_LOCATION = `${INPUT_JSON_PATH}${INPUT_JSON_NAME}.ASYNC.geocode
 const INPUT_FILE = StreamArray.make();
 const OUTPUT_FILE = fs.createWriteStream(OUTPUT_JSON_LOCATION)
 
-const geocode = require("./us-census-geocoder")
-
 const asyncTasks = [];
-
 
 INPUT_FILE.output.on("data", function({index,value}){
 
-    const write_value = (obj)=>OUTPUT_FILE.write(`,${JSON.stringify(obj)}`)
+    const first_char = index === 0 ? '[' : ','
+
+    const write_value = (obj)=>OUTPUT_FILE.write(`${first_char}${JSON.stringify(obj)}`)
 
     if(value.coordinates){
         console.log(`done: ${value.key} ${value.coordinates}`);
@@ -44,6 +42,5 @@ INPUT_FILE.output.on("end", function(){
     });
 });
 
-OUTPUT_FILE.write(`[{}`)
 
 fs.createReadStream(INPUT_JSON_LOCATION).pipe(INPUT_FILE.input);
