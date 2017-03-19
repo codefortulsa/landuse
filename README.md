@@ -24,6 +24,8 @@ npm install
 
 * add-geocode-json.js -- Reads json array file and creates a new json array file with geocoded addresses
 
+* assign-census-block.js -- Reads json array file and creates a new file with census block added
+
 * json-to-csv.js -- Reads json array file and save a csv file
 
 ## Service Modules
