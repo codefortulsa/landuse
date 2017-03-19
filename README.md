@@ -26,15 +26,31 @@ npm install
 
 * json-to-csv.js -- Reads json array file and save a csv file
 
-* us-census-geocoder.js --- module that provide the 'geocode' function.  Takes an address and callback.  If successful, geocoder calls the callback with an array = [Longitude, Latitude].
+## Service Modules
+
+* ok-boundary-service --- Provides findCensusBlock which takes an array with [Longitude, Latitude] and returns the census block.
+
+```
+const findCensusBlock = require('ok-boundary-service')
+
+const coordinates = [ -95.99369, 36.1594]
+
+findCensusBlock(coordinates, function(block){
+    console.log("The coordinates are with this block: " + block)
+})
+```
+
+* us-census-geocoder.js --- Provides the 'geocode' function.  Takes an address object and callback.  If successful, geocoder calls the callback with an array = [Longitude, Latitude].
 
 
 ```
 const geocoder = require('us-census-geocoder')
 
-geocoder("36 East Cameron Street Tulsa OK", function(coords){
-    console.log("Longitue is " + coords[0])
-    console.log("Latitude is " + coords[1])    
+const address = {street:'36 E CAMERON', city: 'TULSA', state:'OK', zip: '74103'}
+
+geocoder(address, function(coordinates){
+    console.log("Longitue is " + coordinates[0])
+    console.log("Latitude is " + coordinates[1])    
 })
 ```
 
@@ -47,3 +63,5 @@ geocoder("36 East Cameron Street Tulsa OK", function(coords){
 [US Census Geocoder API](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.pdf)
 
 [Use ogr2ogr to convert .shp files](https://www.bram.us/2012/03/14/convert-esri-shapefile-shp-to-geojson-json/)
+
+[Oklahoma Boundary Service API](http://oklahomadata.org/boundary/#api)

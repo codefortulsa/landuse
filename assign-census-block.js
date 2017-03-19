@@ -18,18 +18,18 @@ INPUT_FILE.output.on("data", function({index,value}){
     const first_char = index === 0 ? '[' : ','
     const write_value = (obj)=>OUTPUT_FILE.write(`${first_char}${JSON.stringify(obj)}`)
     function getCensusBlock (callback) {
-        findCensusBlock(value, function (result) {
-            process.stdout.write(`${result.block}\n`)
-            write_value(result)
+        findCensusBlock(value.coordinates, function (result) {
+            console.log(`${index}:${JSON.stringify(result)}`);
+            value.block = result
+            write_value(value)
             callback()
         })
     }
+    console.log(asyncTasks.length)
     asyncTasks.push(getCensusBlock)
-    process.stdout.write(`${index},`)
 });
 
 INPUT_FILE.output.on("end", function(){
-    console.log('\n start running');
     async.parallel(asyncTasks, function(){
         OUTPUT_FILE.write(`]`)
         console.log("done");
