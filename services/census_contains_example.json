@@ -1,0 +1,161 @@
+[
+    {
+        "meta": {
+            "limit": 20,
+            "next": null,
+            "offset": 0,
+            "previous": null,
+            "total_count": 1
+        },
+        "objects": [
+            {
+                "centroid": {
+                    "coordinates": [
+                        -95.93253851598703,
+                        36.009441344732295
+                    ],
+                    "type": "Point"
+                },
+                "external_id": "52351",
+                "kind": "Block",
+                "metadata": {
+                    "ABNAME": "Block 1014",
+                    "AMINDFIPS": "18170",
+                    "ANPSADPI": "Block 1014",
+                    "AREALAND": "215096",
+                    "AREAWATER": "0",
+                    "BLKGRP": "1",
+                    "BLOCK": "1014",
+                    "CD106": "01",
+                    "CNTYSUB": "93380",
+                    "COUNTY": "143",
+                    "ID": 52351,
+                    "MSACMSA": "8560",
+                    "PLACE": "75000",
+                    "STATE": "40",
+                    "STFID": "401430076381014",
+                    "STHOUSE": "69",
+                    "STSENATE": "51",
+                    "STUSAB": "OK",
+                    "SUMLEV": "750",
+                    "TA1OTHER": 0,
+                    "TA1RACE": 137,
+                    "TAAMERIND": 5,
+                    "TAASIAN": 5,
+                    "TABLACK": 4,
+                    "TAHAWPAC": 0,
+                    "TAPERSONS": 143,
+                    "TAWHITE": 123,
+                    "TAZ": "371",
+                    "TN1RACE": 135,
+                    "TNAMINAKN": 5,
+                    "TNASIAN": 5,
+                    "TNBLACK": 4,
+                    "TNHAWOP": 0,
+                    "TNHISPANIC": 2,
+                    "TNNONHISP": 141,
+                    "TNOTHER": 0,
+                    "TNTOTAL": 143,
+                    "TNWHITE": 121,
+                    "TRACT": "007638",
+                    "VA1OTHER": 0,
+                    "VA1RACE": 92,
+                    "VAAMERIND": 2,
+                    "VAASIAN": 3,
+                    "VABLACK": 2,
+                    "VAHAWPAC": 0,
+                    "VAPERSONS": 95,
+                    "VAWHITE": 85,
+                    "VN1RACE": 90,
+                    "VNAMINAKN": 2,
+                    "VNASIAN": 3,
+                    "VNBLACK": 2,
+                    "VNHAWOP": 0,
+                    "VNHISPANIC": 2,
+                    "VNNONHISP": 93,
+                    "VNOTHER": 0,
+                    "VNTOTAL": 95,
+                    "VNWHITE": 83,
+                    "VTD": "167"
+                },
+                "name": "Block 1014",
+                "resource_uri": "/boundary/1.0/boundary/block-1014-block-292/",
+                "set": "/boundary/1.0/boundary-set/blocks/",
+                "simple_shape": {
+                    "coordinates": [
+                        [
+                            [
+                                [
+                                    -95.927331,
+                                    36.009971
+                                ],
+                                [
+                                    -95.92727,
+                                    36.009696
+                                ],
+                                [
+                                    -95.927502,
+                                    36.009348
+                                ],
+                                [
+                                    -95.9287700000001,
+                                    36.009396
+                                ],
+                                [
+                                    -95.929542,
+                                    36.009188
+                                ],
+                                [
+                                    -95.92967,
+                                    36.008996
+                                ],
+                                [
+                                    -95.930942,
+                                    36.009456
+                                ],
+                                [
+                                    -95.93197,
+                                    36.009396
+                                ],
+                                [
+                                    -95.93191,
+                                    36.007464
+                                ],
+                                [
+                                    -95.932174,
+                                    36.007128
+                                ],
+                                [
+                                    -95.93557,
+                                    36.007096
+                                ],
+                                [
+                                    -95.93557,
+                                    36.011196
+                                ],
+                                [
+                                    -95.93037,
+                                    36.011196
+                                ],
+                                [
+                                    -95.93037,
+                                    36.010496
+                                ],
+                                [
+                                    -95.92747,
+                                    36.010596
+                                ],
+                                [
+                                    -95.927331,
+                                    36.009971
+                                ]
+                            ]
+                        ]
+                    ],
+                    "type": "MultiPolygon"
+                },
+                "slug": "block-1014-block-292"
+            }
+        ]
+    }
+]

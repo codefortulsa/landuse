@@ -1,7 +1,7 @@
 const fs = require("fs")
 const StreamArray = require("stream-json/utils/StreamArray");
 const async = require("async")
-const geocode = require("./services/us-census-geocoder")
+const geocode = require("../services/us-census-geocoder")
 
 const INPUT_JSON_PATH = './data/';
 const INPUT_JSON_NAME = 'SalesTaxLocations';

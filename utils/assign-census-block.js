@@ -2,7 +2,7 @@ const fs = require("fs")
 const request = require("request")
 const async = require("async")
 const StreamArray = require("stream-json/utils/StreamArray");
-const findCensusBlock = require("./services/ok-boundary-service")
+const findCensusBlock = require("../services/ok-boundary-service")
 
 const INPUT_JSON_PATH = './data/';
 const INPUT_JSON_NAME = 'SalesTaxLocations';
